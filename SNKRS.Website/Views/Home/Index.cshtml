@@ -1,0 +1,7 @@
+﻿@model SNKRS.Controllers.ServerLoadModel
+
+@Html.ReactRouter("Routing", new { path = Request.RawUrl, initialData = Model })
+
+<script src="/public/dist/client.bundle.js"></script>
+
+@Html.ReactInitJavaScript()

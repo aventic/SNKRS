@@ -1,0 +1,18 @@
+# Custom
+.vs/
+**/[Pp]ackages/*
+node_modules/
+[Bb]in/
+[Oo]bj/
+[Cc]onnectionStrings.config
+
+# Umbraco
+**/App_Data/Logs/
+**/App_Data/[Pp]review/
+**/App_Data/TEMP/
+**/App_Data/NuGetBackup/
+**/App_Data/umbraco.config
+!**/App_Data/[Pp]ackages/*
+!**/[Uu]mbraco/[Dd]eveloper/[Pp]ackages/*
+**/App_Data/cache/
+**/App_Data/Models/ood.flag
