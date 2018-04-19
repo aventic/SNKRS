@@ -1,30 +1,43 @@
 import * as React from 'react';
 import { ajax } from 'rxjs/observable/dom/ajax';
+import { ServerRouteProps } from '@src/interfaces/server';
 
-class PageResolver extends React.Component<any, any> {
-    constructor(props: any) {
+class PageResolver extends React.Component<ServerRouteProps, any> {
+    constructor(props: ServerRouteProps) {
         super(props);
 
-        console.log(this.props);
+        this.state = {
+            content: this.props.data.initialData.content,
+            initialLoad: true
+        };
     }
 
     componentDidMount() {
-        if (this.props.route.match.url !== this.props.data.path) {
-            ajax.get('/umbraco/api/settings/getsettings')
-                .subscribe((data) => console.log(data.response));
-        }
+        this.getPage(this.props);
     }
 
-    componentWillReceiveProps(nextProps: any) {
-        if (nextProps.route.match.url !== this.props.data.path) {
-            ajax.get('/umbraco/api/settings/getsettings')
-                .subscribe((data) => console.log(data.response));
+    componentWillReceiveProps(nextProps: ServerRouteProps) {
+        this.getPage(nextProps);
+    }
+
+    private getPage(props: ServerRouteProps) {
+        if (this.state.initialLoad) {
+            this.setState({ initialLoad: false });
+        } else {
+            const { url } = props.route.match;
+
+            ajax
+                .get(`/umbraco/api/content/getcontent?url=${url}`)
+                .subscribe(
+                    data => this.setState({ content: data.response }),
+                    error => this.setState({ content: error.response })
+                );
         }
     }
 
     render() {
         return (
-            <div>123</div>
+            <div>{this.state.content.headline}</div>
         );
     }
 }

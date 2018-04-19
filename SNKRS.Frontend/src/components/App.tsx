@@ -1,14 +1,17 @@
 import * as React from 'react';
-import { Route, RouteProps } from 'react-router-dom';
+import { Route, RouteComponentProps, Link } from 'react-router-dom';
 import Header from '@src/components/Header';
 import Footer from '@src/components/Footer';
 import PageResolver from '@src/components/PageResolver';
+import { ServerProps } from '@src/interfaces/server';
 
-const App: React.StatelessComponent<any> = (props: any) => {
+const App: React.StatelessComponent<ServerProps> = (props: ServerProps) => {
     return (
         <React.Fragment>
             <Header />
-            <Route path="*" component={(routeProps: RouteProps) => <PageResolver route={{...routeProps}} data={...props} />} />
+            <Route
+                path="*"
+                render={(routeProps: RouteComponentProps<void>) => <PageResolver data={props} route={routeProps} />} />
             <Footer />
         </React.Fragment>
     );

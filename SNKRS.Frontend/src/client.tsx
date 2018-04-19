@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { ServerProps } from '@src/interfaces/server';
 import App from '@src/components/App';
 
-import { BrowserRouter as Router } from 'react-router-dom';
-
-const Routing: React.StatelessComponent<any> = (props: any) => {
+const Routing: React.StatelessComponent<ServerProps> = (props: ServerProps) => {
     return (
         <Router>
             <App {...props} />
