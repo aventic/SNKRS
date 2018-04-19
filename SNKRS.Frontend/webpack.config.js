@@ -13,7 +13,7 @@ module.exports = (env, { mode }) => {
             server: './src/server.tsx'
         },
         output: {
-            path: path.resolve(__dirname, 'public/dist'),
+            path: path.resolve(__dirname, '../SNKRS.Website/dist'),
             filename: '[name].bundle.js'
         },
         resolve: {
@@ -70,7 +70,7 @@ module.exports = (env, { mode }) => {
         },
         plugins: [
             new ExtractTextPlugin('styles.css'),
-            new CleanPlugin('public/dist')
+            new CleanPlugin('../SNKRS.Website/dist')
         ],
         devtool: isProduction ? 'source-map' : 'inline-source-map',
     }

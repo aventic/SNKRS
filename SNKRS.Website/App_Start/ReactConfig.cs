@@ -1,4 +1,4 @@
-﻿using React;
+using React;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(SNKRS.Website.ReactConfig), "Configure")]
 
@@ -26,7 +26,7 @@ namespace SNKRS.Website
 
             ReactSiteConfiguration.Configuration
                 .SetLoadBabel(false)
-                .AddScriptWithoutTransform("/public/dist/server.bundle.js");
+                .AddScriptWithoutTransform("/dist/server.bundle.js");
         }
     }
 }
