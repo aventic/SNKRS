@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System.Web.Mvc;
 using Umbraco.Web.Mvc;
 using SNKRS.Models;
@@ -11,7 +11,7 @@ namespace SNKRS.Controllers
         {
             ServerLoadModel serverModel = new ServerLoadModel
             {
-                Content = ContentController.PageContent(CurrentPage.Url),
+                Page = ContentController.PageContent(CurrentPage.Url),
                 Settings = SettingsController.Settings()
             };
 
@@ -21,8 +21,8 @@ namespace SNKRS.Controllers
 
     public class ServerLoadModel
     {
-        [JsonProperty("content")]
-        public PageModel Content { get; set; }
+        [JsonProperty("page")]
+        public PageModel Page { get; set; }
 
         [JsonProperty("settings")]
         public SettingsModel Settings { get; set; }

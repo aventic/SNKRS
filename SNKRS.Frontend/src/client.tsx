@@ -1,14 +1,22 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { ServerProps } from '@src/interfaces/server';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import App from '@src/components/App';
+import configureStore from '@src/store/configure-store';
 
-const Routing: React.StatelessComponent<ServerProps> = (props: ServerProps) => {
+interface RoutingProps {
+    path: string;
+    data: { [key: string]: any; };
+}
+
+const Routing: React.StatelessComponent<RoutingProps> = (props: RoutingProps) => {
     return (
-        <Router>
-            <App {...props} />
-        </Router>
+        <Provider store={configureStore(props.data)}>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </Provider>
     );
 };
 
