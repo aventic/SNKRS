@@ -5,4 +5,5 @@ export interface Page {
     headline: string;
     seo: Seo;
     mainMenu: any;
+    loading: boolean;
 }

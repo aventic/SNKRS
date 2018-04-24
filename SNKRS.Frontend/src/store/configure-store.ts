@@ -1,6 +1,15 @@
-import { createStore, combineReducers, compose } from 'redux';
-import page from '@src/reducers/page';
-import settings from '@src/reducers/settings';
+import { createEpicMiddleware, combineEpics } from 'redux-observable';
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import pageReducer from '@src/reducers/page';
+import settingsReducer from '@src/reducers/settings';
+import fetchPageEpic from '@src/epics/page';
+
+const epicMiddleware =
+    createEpicMiddleware(
+        combineEpics(
+            fetchPageEpic
+        )
+    );
 
 let composeEnhancers: any;
 
@@ -13,11 +22,13 @@ if (typeof window !== 'undefined') {
 const configureStore = (initialState: any) => {
     const store = createStore(
         combineReducers({
-            settings,
-            page
+            settings: settingsReducer,
+            page: pageReducer
         }),
         initialState,
-        composeEnhancers()
+        composeEnhancers(
+            applyMiddleware(epicMiddleware)
+        )
     );
 
     return store;
