@@ -8,12 +8,13 @@
   "scripts": {
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production",
-    "watch": "webpack --mode=development --watch"
+    "watch": "webpack --mode=development --watch",
+    "prettier": "prettier --write src/**/*.{tsx,ts}"
   },
   "dependencies": {
     "@types/react": "^16.3.10",
     "@types/react-dom": "^16.0.5",
-    "@types/react-redux": "^5.0.16",
+    "@types/react-redux": "^5.0.18",
     "@types/react-router-dom": "^4.2.6",
     "autoprefixer": "^8.2.0",
     "clean-webpack-plugin": "^0.1.19",
@@ -22,14 +23,15 @@
     "node-sass": "^4.8.3",
     "normalize.css": "^8.0.0",
     "postcss-loader": "^2.1.3",
+    "prettier": "^1.12.1",
     "raw-loader": "^0.5.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2",
+    "redux": "^4.0.0",
     "redux-observable": "^0.18.0",
-    "rxjs": "^5.5.10",
+    "rxjs": "5.5.10",
     "sass-loader": "^7.0.1",
     "svgo": "^1.0.5",
     "svgo-loader": "^2.1.0",

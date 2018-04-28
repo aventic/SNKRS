@@ -3,5 +3,5 @@ import { Settings } from '@src/interfaces/settings';
 
 export interface State {
     page: Page;
-    settings: Settings
+    settings: Settings;
 }

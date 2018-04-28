@@ -4,16 +4,14 @@ import { RouteComponentProps } from 'react-router';
 import { fetchPageAction } from '@src/actions/page';
 import Page from '@src/components/Page';
 
-class PageResolver extends React.Component<RouteComponentProps<void> & DispatchProp<Function>, any> {
+class PageResolver extends React.Component<RouteComponentProps<void> & DispatchProp, any> {
     componentWillReceiveProps(nextProps: RouteComponentProps<void>) {
         const { url } = nextProps.match;
         this.props.dispatch(fetchPageAction(url));
     }
 
     render() {
-        return (
-            <Page />
-        );
+        return <Page />;
     }
 }
 

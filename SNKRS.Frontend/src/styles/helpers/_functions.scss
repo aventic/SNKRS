@@ -1,0 +1,16 @@
+// Px to rem
+@function rem($size) {
+    $remSize: $size / $font-size_base;
+    @return #{$remSize}rem;
+}
+
+// Px to vw / vh
+@function vw($size) {
+    $vwSize: (1000 * 0.01) * 1px;
+    @return #{$size / $vwSize}vw;
+}
+
+@function vh($size) {
+    $vhSize: (1000 * 0.01) * 1px;
+    @return #{$size / $vhSize}vw;
+}

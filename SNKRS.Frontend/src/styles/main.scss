@@ -1,7 +1,17 @@
 // 3rd party
 @import '~normalize.css/normalize';
 
+// Helpers
+@import './helpers/variables';
+@import './helpers/functions';
+@import './helpers/mixins';
+
 // Base
 @import './base/base';
+@import './base/typography';
+@import './base/grid';
+@import './base/button';
 
 // Components
+@import './components/header';
+@import './components/page';

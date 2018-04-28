@@ -1,0 +1,27 @@
+.container {
+    padding-right: rem($gutter);
+    padding-left: rem($gutter);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -#{rem($gutter)};
+    margin-left: -#{rem($gutter)};
+}
+
+.column {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: rem($gutter);
+    padding-left: rem($gutter);
+
+    @include media-up($size_small) {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+}

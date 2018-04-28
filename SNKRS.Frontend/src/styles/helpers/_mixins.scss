@@ -1,0 +1,24 @@
+// Breakpoint
+// @mixin media($point) {
+//     @media (min-width: $point) and (max-width: $point2 - 1px) {
+//         @content;
+//     }
+// }
+
+@mixin media-up($point) {
+    @media (min-width: $point) {
+        @content;
+    }
+}
+
+@mixin media-down($point) {
+    @media (max-width: $point - 1px) {
+        @content;
+    }
+}
+
+@mixin media-between($point, $point2) {
+    @media (min-width: $point) and (max-width: $point2 - 1px) {
+        @content;
+    }
+}

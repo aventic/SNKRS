@@ -1,6 +1,6 @@
-import { AnyAction } from "redux";
-import { Page } from "@src/interfaces/page";
-import { FETCH_PAGE, FETCH_PAGE_DONE } from "@src/actions/page";
+import { AnyAction } from 'redux';
+import { Page } from '@src/interfaces/page';
+import { FETCH_PAGE, FETCH_PAGE_DONE } from '@src/actions/page';
 
 const initialState: any = {
     loading: false

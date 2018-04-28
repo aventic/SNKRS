@@ -1,0 +1,12 @@
+.page {
+    margin-left: rem(70px);
+    height: 3000px;
+
+    @include media-up($size_small) {
+        margin-left: rem(90px);
+    }
+
+    @include media-up($size_medium) {
+        margin-left: rem(190px);
+    }
+}

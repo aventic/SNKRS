@@ -9,9 +9,19 @@ interface PageProps {
 
 const Page: React.StatelessComponent<PageProps> = (props: PageProps) => {
     return (
-        <div>
-            {props.page.loading ? (<div>1</div>) : (<div>2</div>)}
-            {props.page.headline} - {props.page.content}
+        <div className="container">
+            <div className="row">
+                <div className="column">
+                    {props.page.headline}
+                    <br />
+                    {props.page.content}
+                </div>
+                <div className="column">
+                    {props.page.headline}
+                    <br />
+                    {props.page.content}
+                </div>
+            </div>
         </div>
     );
 };

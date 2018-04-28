@@ -8,10 +8,10 @@ const App: React.StatelessComponent<any> = () => {
     return (
         <React.Fragment>
             <Header />
-            <Route
-                path="*"
-                component={PageResolver} />
-            <Footer />
+            <div className="page">
+                <Route path="*" component={PageResolver} />
+                <Footer />
+            </div>
         </React.Fragment>
     );
 };

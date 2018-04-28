@@ -1,3 +1,4 @@
+import './styles/main.scss';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -7,7 +8,7 @@ import configureStore from '@src/store/configure-store';
 
 interface RoutingProps {
     path: string;
-    data: { [key: string]: any; };
+    data: { [key: string]: any };
 }
 
 const Routing: React.StatelessComponent<RoutingProps> = (props: RoutingProps) => {
