@@ -1,33 +1,45 @@
+import { IPage } from '@src/interfaces/page';
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { State } from '@src/interfaces/state';
-import { Page } from '@src/interfaces/page';
 
-interface PageProps {
-    page: Page;
+interface IPageProps {
+    page: IPage;
 }
 
-const Page: React.StatelessComponent<PageProps> = (props: PageProps) => {
-    return (
-        <div className="container">
-            <div className="row">
-                <div className="column">
-                    {props.page.headline}
-                    <br />
-                    {props.page.content}
-                </div>
-                <div className="column">
-                    {props.page.headline}
-                    <br />
-                    {props.page.content}
+class Page extends React.Component<IPageProps, any> {
+    constructor(props: IPageProps) {
+        super(props);
+
+        this.setBrowserTitle(props.page.seo.title);
+    }
+
+    private setBrowserTitle(title: string) {
+        if (typeof window !== 'undefined') {
+            document.title = title;
+        }
+    }
+
+    componentWillReceiveProps(nextProps: IPageProps) {
+        this.setBrowserTitle(nextProps.page.seo.title);
+    }
+
+    render() {
+        return (
+            <div className="container">
+                <div className="row">
+                    <div className="column">
+                        {this.props.page.headline}
+                        <br />
+                        {this.props.page.content}
+                    </div>
+                    <div className="column">
+                        {this.props.page.headline}
+                        <br />
+                        {this.props.page.content}
+                    </div>
                 </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+}
 
-const mapStateToProps = ({ page }: State) => {
-    return { page };
-};
-
-export default connect(mapStateToProps)(Page);
+export default Page;

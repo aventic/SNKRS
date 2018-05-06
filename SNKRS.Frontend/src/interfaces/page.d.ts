@@ -1,9 +1,9 @@
-import { Seo } from '@src/interfaces/seo';
+import { ISeo } from '@src/interfaces/seo';
 
-export interface Page {
+export interface IPage {
     content: string;
     headline: string;
-    seo: Seo;
+    seo: ISeo;
     mainMenu: any;
     loading: boolean;
 }

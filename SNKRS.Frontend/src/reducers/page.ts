@@ -1,12 +1,12 @@
 import { AnyAction } from 'redux';
-import { Page } from '@src/interfaces/page';
+import { IPage } from '@src/interfaces/page';
 import { FETCH_PAGE, FETCH_PAGE_DONE } from '@src/actions/page';
 
 const initialState: any = {
     loading: false
 };
 
-const pageReducer = (state: Page = initialState, action: AnyAction): Page => {
+const pageReducer = (state: IPage = initialState, action: AnyAction): IPage => {
     switch (action.type) {
         case FETCH_PAGE:
             return { ...state, loading: true };

@@ -1,4 +1,4 @@
-export interface Settings {
+export interface ISettings {
     url: string;
     name: string;
     logo: string;

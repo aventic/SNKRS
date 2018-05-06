@@ -3,6 +3,8 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import pageReducer from '@src/reducers/page';
 import settingsReducer from '@src/reducers/settings';
 import fetchPageEpic from '@src/epics/page';
+import scrollEpic from '@src/epics/scroll';
+import scrollReducer from '@src/reducers/scroll';
 
 const epicMiddleware = createEpicMiddleware(combineEpics(fetchPageEpic));
 

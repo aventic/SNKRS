@@ -1,0 +1,22 @@
+.top-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: rem(70px);
+    z-index: 10;
+    background: $color-white;
+    box-shadow: 0 0 rem(15px) 0 rgba($color-black, 0);
+    transition: box-shadow 1s $transition-timing;
+
+    @include media-up($size_small) {
+        left: rem(90px);
+    }
+
+    @include media-up($size_medium) {
+        left: rem(190px);
+    }
+}
+
+.top-bar_active {
+    box-shadow: 0 rem(10px) rem(15px) 0 rgba($color-black, 0.1);
+}

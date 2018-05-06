@@ -1,9 +1,9 @@
 import { AnyAction } from 'redux';
-import { Settings } from '@src/interfaces/settings';
+import { ISettings } from '@src/interfaces/settings';
 
 const initialState: any = {};
 
-const settingsReducer = (state: Settings = initialState, action: AnyAction): Settings => {
+const settingsReducer = (state: ISettings = initialState, action: AnyAction): ISettings => {
     switch (action.type) {
         default:
             return state;

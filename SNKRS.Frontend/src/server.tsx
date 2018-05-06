@@ -13,11 +13,11 @@ interface RoutingProps {
 
 const Routing: React.StatelessComponent<RoutingProps> = (props: RoutingProps) => {
     return (
-        <Provider store={configureStore(props.data)}>
+        // <Provider store={configureStore(props.data)}>
             <StaticRouter location={props.path} context={{}}>
-                <App />
+                <App data={props.data} />
             </StaticRouter>
-        </Provider>
+        // </Provider>
     );
 };
 

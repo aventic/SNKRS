@@ -1,11 +1,55 @@
 import * as React from 'react';
-import { Route } from 'react-router-dom';
-import Header from '@src/components/Header';
-import Footer from '@src/components/Footer';
-import PageResolver from '@src/components/PageResolver';
+import { Link } from 'react-router-dom';
+import Scroll from '@src/helpers/scroll';
+import { IMainMenu } from '@src/interfaces/main-menu';
 
-const TopBar: React.StatelessComponent<any> = () => {
-    return <div className="top-bar">TopBar</div>;
-};
+interface ITopBarProps {
+    mainMenu: IMainMenu[];
+}
+
+interface ITopBarState {
+    active: boolean;
+}
+
+class TopBar extends React.Component<ITopBarProps, ITopBarState> {
+    constructor(props: ITopBarProps) {
+        super(props);
+
+        this.state = {
+            active: false
+        };
+    }
+
+    private recursiveMenu(menu: IMainMenu[]): JSX.Element {
+        return (
+            <ul style={{ float: 'left' }}>
+                {menu.map(menuItem => (
+                    <li style={{ float: 'left' }} key={menuItem.name}>
+                        <Link to={menuItem.url}>{menuItem.name}</Link>
+                        {menuItem.children && this.recursiveMenu(menuItem.children)}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
+
+    componentDidMount() {
+        Scroll.scroll$.subscribe(data => {
+            if (data > 0) {
+                this.setState({ active: true });
+            } else {
+                this.setState({ active: false });
+            }
+        });
+    }
+
+    render() {
+        return (
+            <header className={'top-bar ' + (this.state.active ? 'top-bar_active' : '')}>
+                {this.recursiveMenu(this.props.mainMenu)}
+            </header>
+        );
+    }
+}
 
 export default TopBar;

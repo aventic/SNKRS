@@ -1,5 +1,5 @@
-export interface MainMenu {
+export interface IMainMenu {
     name: string;
     url: string;
-    children: MainMenu[];
+    children: IMainMenu[];
 }

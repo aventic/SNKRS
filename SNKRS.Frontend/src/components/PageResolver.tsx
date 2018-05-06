@@ -1,18 +1,40 @@
 import * as React from 'react';
-import { connect, DispatchProp } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
-import { fetchPageAction } from '@src/actions/page';
+import { ajax } from 'rxjs/observable/dom/ajax';
+import { AjaxResponse } from 'rxjs/observable/dom/AjaxObservable';
+import { IPage } from '@src/interfaces/page';
 import Page from '@src/components/Page';
 
-class PageResolver extends React.Component<RouteComponentProps<void> & DispatchProp, any> {
-    componentWillReceiveProps(nextProps: RouteComponentProps<void>) {
-        const { url } = nextProps.match;
-        this.props.dispatch(fetchPageAction(url));
+interface IPageResolverProps {
+    page: IPage;
+    route: RouteComponentProps<void>;
+}
+
+interface IPageResolverState {
+    page: IPage;
+}
+
+class PageResolver extends React.Component<IPageResolverProps, IPageResolverState> {
+    constructor(props: IPageResolverProps) {
+        super(props);
+
+        this.state = {
+            page: props.page
+        };
+    }
+
+    componentWillReceiveProps(nextProps: IPageResolverProps) {
+        ajax
+            .get(`/umbraco/api/content/getcontent?url=${nextProps.route.match.url}`)
+            .subscribe(
+                data => this.setState({ page: data.response }),
+                (error: AjaxResponse) => this.setState({ page: error.response })
+            );
     }
 
     render() {
-        return <Page />;
+        return <Page page={this.state.page} />;
     }
 }
 
-export default connect()(PageResolver);
+export default PageResolver;
