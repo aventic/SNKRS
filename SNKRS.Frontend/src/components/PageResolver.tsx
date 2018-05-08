@@ -1,9 +1,9 @@
+import Page from '@src/components/Page';
+import { IPage } from '@src/interfaces/page';
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { AjaxResponse } from 'rxjs/observable/dom/AjaxObservable';
-import { IPage } from '@src/interfaces/page';
-import Page from '@src/components/Page';
 
 interface IPageResolverProps {
     page: IPage;
@@ -23,12 +23,17 @@ class PageResolver extends React.Component<IPageResolverProps, IPageResolverStat
         };
     }
 
+    private setPage(data: any) {
+        this.setState({ page: data });
+        window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+    }
+
     componentWillReceiveProps(nextProps: IPageResolverProps) {
         ajax
             .get(`/umbraco/api/content/getcontent?url=${nextProps.route.match.url}`)
             .subscribe(
-                data => this.setState({ page: data.response }),
-                (error: AjaxResponse) => this.setState({ page: error.response })
+                data => this.setPage(data.response),
+                (error: AjaxResponse) => this.setPage(error.response)
             );
     }
 

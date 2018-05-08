@@ -1,7 +1,8 @@
+// import Scroll from '@src/helpers/scroll';
+import { IMainMenu } from '@src/interfaces/main-menu';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import Scroll from '@src/helpers/scroll';
-import { IMainMenu } from '@src/interfaces/main-menu';
+import Scroll from '@src/components/Scroll';
 
 interface ITopBarProps {
     mainMenu: IMainMenu[];
@@ -22,10 +23,10 @@ class TopBar extends React.Component<ITopBarProps, ITopBarState> {
 
     private recursiveMenu(menu: IMainMenu[]): JSX.Element {
         return (
-            <ul style={{ float: 'left' }}>
+            <ul className="main-menu__list">
                 {menu.map(menuItem => (
-                    <li style={{ float: 'left' }} key={menuItem.name}>
-                        <Link to={menuItem.url}>{menuItem.name}</Link>
+                    <li className="main-menu__item" key={menuItem.name}>
+                        <Link className="main-menu__link" to={menuItem.url}>{menuItem.name}</Link>
                         {menuItem.children && this.recursiveMenu(menuItem.children)}
                     </li>
                 ))}
@@ -33,21 +34,15 @@ class TopBar extends React.Component<ITopBarProps, ITopBarState> {
         );
     }
 
-    componentDidMount() {
-        Scroll.scroll$.subscribe(data => {
-            if (data > 0) {
-                this.setState({ active: true });
-            } else {
-                this.setState({ active: false });
-            }
-        });
-    }
-
     render() {
         return (
-            <header className={'top-bar ' + (this.state.active ? 'top-bar_active' : '')}>
-                {this.recursiveMenu(this.props.mainMenu)}
-            </header>
+            <Scroll>
+                {scrollY => (
+                    <header className={'top-bar ' + (scrollY > 0 ? 'top-bar_active' : '')}>
+                        <div className="main-menu">{this.recursiveMenu(this.props.mainMenu)}</div>
+                    </header>
+                )}
+            </Scroll>
         );
     }
 }

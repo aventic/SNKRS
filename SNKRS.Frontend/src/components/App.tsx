@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { Route, RouteComponentProps } from 'react-router-dom';
-import Header from '@src/components/Header';
 import Footer from '@src/components/Footer';
+import Header from '@src/components/Header';
 import PageResolver from '@src/components/PageResolver';
 import TopBar from '@src/components/TopBar';
+import * as React from 'react';
+import { Route, RouteComponentProps } from 'react-router-dom';
 
 interface IAppProps {
     data: { [key: string]: any };
 }
 
-const App: React.StatelessComponent<IAppProps> = (props: IAppProps) => {
+const App: React.SFC<IAppProps> = (props: IAppProps) => {
     return (
         <React.Fragment>
             <Header name={props.data.settings.name} url={props.data.settings.url} />
@@ -17,7 +17,9 @@ const App: React.StatelessComponent<IAppProps> = (props: IAppProps) => {
             <div className="page">
                 <Route
                     path="*"
-                    render={(route: RouteComponentProps<void>) => <PageResolver page={props.data.page} route={route} />}
+                    render={(route: RouteComponentProps<void>) => (
+                        <PageResolver page={props.data.page} route={route} />
+                    )}
                 />
                 <Footer />
             </div>

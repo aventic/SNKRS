@@ -1,5 +1,6 @@
 import { IPage } from '@src/interfaces/page';
 import * as React from 'react';
+import PlatformHelper from '@src/helpers/platform';
 
 interface IPageProps {
     page: IPage;
@@ -13,7 +14,7 @@ class Page extends React.Component<IPageProps, any> {
     }
 
     private setBrowserTitle(title: string) {
-        if (typeof window !== 'undefined') {
+        if (PlatformHelper.isBrowser) {
             document.title = title;
         }
     }

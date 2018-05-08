@@ -11,7 +11,7 @@ interface RoutingProps {
     data: { [key: string]: any };
 }
 
-const Routing: React.StatelessComponent<RoutingProps> = (props: RoutingProps) => {
+const Routing: React.SFC<RoutingProps> = (props: RoutingProps) => {
     return (
         // <Provider store={configureStore(props.data)}>
             <StaticRouter location={props.path} context={{}}>

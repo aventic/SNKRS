@@ -1,6 +1,6 @@
 .page {
     margin-left: rem(70px);
-    padding: rem(50px);
+    padding: rem(50px + (1.4 * $font-size + 20px)) rem(50px) rem(50px);
     height: 3000px;
 
     @include media-up($size_small) {

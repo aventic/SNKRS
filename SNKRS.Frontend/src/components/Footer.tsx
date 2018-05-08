@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const Footer: React.StatelessComponent<any> = () => (
+const Footer: React.SFC<any> = () => (
     <div className="container">
         <div className="row">
             <div className="column">Footer</div>

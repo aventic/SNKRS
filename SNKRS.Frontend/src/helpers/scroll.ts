@@ -1,10 +1,11 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
+import PlatformHelper from '@src/helpers/platform';
 
-class Scroll {
+class ScrollHelper {
     constructor() {
-        if (typeof window !== 'undefined') {
+        if (PlatformHelper.isBrowser) {
             Observable.fromEvent(window, 'scroll').subscribe(() => {
                 this.scrollTrigger.next(window.scrollY);
             });
@@ -12,10 +13,10 @@ class Scroll {
     }
 
     private scrollTrigger: BehaviorSubject<number> = new BehaviorSubject<number>(
-        typeof window !== 'undefined' ? window.scrollY : 0
+        PlatformHelper.isBrowser ? window.scrollY : 0
     );
 
-    scroll$ = this.scrollTrigger.asObservable();
+    readonly scroll$ = this.scrollTrigger.asObservable();
 }
 
-export default new Scroll();
+export default new ScrollHelper();

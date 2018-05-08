@@ -6,7 +6,7 @@ interface IHeaderProps {
     url: string;
 }
 
-const Header: React.StatelessComponent<IHeaderProps> = (props: IHeaderProps) => {
+const Header: React.SFC<IHeaderProps> = (props: IHeaderProps) => {
     return (
         <header className="header">
             <Link to={props.url} className="header__logo">
