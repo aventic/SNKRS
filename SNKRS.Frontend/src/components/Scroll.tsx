@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/takeUntil';
 import ScrollHelper from '@src/helpers/scroll';
 import { ReactNode } from 'react';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 interface ScrollProps {
     children?: (scrollY: number) => ReactNode;
@@ -20,7 +20,7 @@ class Scroll extends React.Component<ScrollProps, any> {
     private destroy: Subject<void> = new Subject();
 
     componentDidMount() {
-        ScrollHelper.scroll$.takeUntil(this.destroy).subscribe(data => {
+        ScrollHelper.scroll$.pipe(takeUntil(this.destroy)).subscribe(data => {
             this.setState({ scrollY: data });
         });
     }

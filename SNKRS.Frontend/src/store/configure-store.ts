@@ -1,12 +1,12 @@
-import { createEpicMiddleware, combineEpics } from 'redux-observable';
+// import { createEpicMiddleware, combineEpics } from 'redux-observable';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import pageReducer from '@src/reducers/page';
 import settingsReducer from '@src/reducers/settings';
-import fetchPageEpic from '@src/epics/page';
-import scrollEpic from '@src/epics/scroll';
+// import fetchPageEpic from '@src/epics/page';
+// import scrollEpic from '@src/epics/scroll';
 import scrollReducer from '@src/reducers/scroll';
 
-const epicMiddleware = createEpicMiddleware(combineEpics(fetchPageEpic));
+// const epicMiddleware = createEpicMiddleware(combineEpics(fetchPageEpic));
 
 let composeEnhancers: any;
 
@@ -23,7 +23,7 @@ const configureStore = (initialState: any) => {
             page: pageReducer
         }),
         initialState,
-        composeEnhancers(applyMiddleware(epicMiddleware))
+        // composeEnhancers(applyMiddleware(epicMiddleware))
     );
 
     return store;
