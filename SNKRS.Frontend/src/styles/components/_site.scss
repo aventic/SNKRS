@@ -1,0 +1,20 @@
+.site {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    margin-left: rem(70px);
+    padding: rem(50px + (1.4 * $font-size + 20px)) 0 rem(50px);
+    height: 4000px;
+
+    @include media-up($size_small) {
+        margin-left: rem(90px);
+    }
+
+    @include media-up($size_medium) {
+        margin-left: rem(190px);
+    }
+}
+
+.site__main {
+    flex: 1 0 auto;
+}

@@ -1,14 +1,13 @@
 import * as React from 'react';
 import ScrollHelper from '@src/helpers/scroll';
-import { ReactNode } from 'react';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-interface ScrollProps {
-    children?: (scrollY: number) => ReactNode;
+interface IScrollProps {
+    children?: (scrollY: number) => React.ReactNode;
 }
 
-class Scroll extends React.Component<ScrollProps, any> {
+class Scroll extends React.Component<IScrollProps, any> {
     constructor(props: any) {
         super(props);
 

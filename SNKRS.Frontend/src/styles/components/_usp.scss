@@ -1,0 +1,38 @@
+.usp__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    margin: -#{rem(10px)} 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include media-up($size_wide) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+.usp__item {
+    margin: rem(10px);
+    display: flex;
+    align-items: center;
+}
+
+.usp__icon {
+    flex-shrink: 0;
+    background: $color-green_light;
+    width: rem(40px);
+    height: rem(40px);
+    margin-right: rem(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        width: rem(15px);
+        height: rem(15px);
+    }
+}

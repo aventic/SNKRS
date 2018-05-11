@@ -370,10 +370,12 @@
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\Utilities.cs" />
+    <Compile Include="Models\FooterMenuModel.cs" />
     <Compile Include="Models\MainMenuModel.cs" />
     <Compile Include="Models\PageModel.cs" />
     <Compile Include="Models\SeoModel.cs" />
     <Compile Include="Models\SettingsModel.cs" />
+    <Compile Include="Models\SocialModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

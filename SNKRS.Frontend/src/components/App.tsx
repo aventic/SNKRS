@@ -14,14 +14,18 @@ const App: React.SFC<IAppProps> = (props: IAppProps) => {
         <React.Fragment>
             <Header name={props.data.settings.name} url={props.data.settings.url} />
             <TopBar mainMenu={props.data.settings.mainMenu} />
-            <div className="page">
-                <Route
-                    path="*"
-                    render={(route: RouteComponentProps<void>) => (
-                        <PageResolver page={props.data.page} route={route} />
-                    )}
-                />
-                <Footer />
+            <div className="site">
+                <div className="site__main">
+                    <Route
+                        path="*"
+                        render={(route: RouteComponentProps<void>) => (
+                            <PageResolver page={props.data.page} route={route} />
+                        )}
+                    />
+                </div>
+                <div className="site__footer">
+                    <Footer footerMenu={props.data.settings.footerMenu} social={props.data.settings.social} />
+                </div>
             </div>
         </React.Fragment>
     );

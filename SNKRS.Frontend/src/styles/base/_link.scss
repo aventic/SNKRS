@@ -1,0 +1,36 @@
+.link {
+    color: $color-black;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.link-effect {
+    &:hover {
+        &:after {
+            transform: scaleX(1);
+        }
+    }
+
+    &:after {
+        content: '';
+        position: relative;
+        display: block;
+        background-color: $color-green_light;
+        bottom: rem(1px);
+        margin-top: -0.45em;
+        height: 0.45em;
+        transform-origin: center;
+        transform: scaleX(0);
+        transition: transform 0.5s $transition-timing;
+        z-index: -1;
+    }
+}
+
+.link-effect_active {
+    &:after {
+        transform: scaleX(1);
+    }
+}

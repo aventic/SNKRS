@@ -7,13 +7,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: $font-family_secondary;
-    font-size: rem(35px);
-    text-transform: uppercase;
-    color: $color-white;
-    text-align: center;
-    word-break: break-all;
-    line-height: $line-height_small;
     padding: 0 ($gutter);
     background: $color-grey;
     overflow: hidden;
@@ -36,6 +29,13 @@
 }
 
 .header__logo {
+    text-align: center;
+    word-break: break-all;
+    line-height: $line-height_small;
+    font-family: $font-family_secondary;
+    font-size: rem(35px);
+    text-transform: uppercase;
+    color: $color-white;
     position: relative;
     z-index: 20;
     color: $color-green_light;
@@ -46,4 +46,19 @@
         text-decoration: none;
         text-shadow: rem(10px) rem(10px) 0 rgba($color-green_light, 0.1);
     }
+}
+
+.header__scroll-top {
+    position: absolute;
+    bottom: rem(20px);
+    z-index: 30;
+    left: 50%;
+    transition: opacity 0.5s $transition-timing, transform 0.5s $transition-timing;
+    opacity: 0;
+    transform: translate(-50%, rem(30px));
+}
+
+.header__scroll-top_active {
+    opacity: 1;
+    transform: translate(-50%, 0);
 }

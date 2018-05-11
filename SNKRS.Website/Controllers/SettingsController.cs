@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -47,8 +47,11 @@ namespace SNKRS.Controllers
             {
                 Url = Constants.RootUrl,
                 Name = content.GetPropertyValue<string>("Title"),
+                Email = content.GetPropertyValue<string>("Email"),
                 Logo = content.HasValue("Logo") ? Utilities.TransformSVG(content.GetPropertyValue<string>("Logo")) : null,
-                MainMenu = MainMenu()
+                MainMenu = MainMenu(),
+                FooterMenu = FooterMenu(),
+                Social = Social()
             };
         }
 
@@ -73,6 +76,36 @@ namespace SNKRS.Controllers
             }
 
             return mainMenuList;
+        }
+
+        public static IEnumerable<FooterMenuModel> FooterMenu()
+        {
+            IPublishedContent page = UmbracoContext.Current.ContentCache.GetByRoute(Constants.FooterUrl);
+
+            List<FooterMenuModel> footerMenuList = new List<FooterMenuModel>();
+
+            foreach (IPublishedContent item in page.GetPropertyValue<IEnumerable<IPublishedContent>>("Links"))
+            {
+                footerMenuList.Add(new FooterMenuModel
+                {
+                    Url = item.Url,
+                    Name = item.Name
+                });
+            }
+
+            return footerMenuList;
+        }
+
+        public static SocialModel Social()
+        {
+            IPublishedContent page = UmbracoContext.Current.ContentCache.GetByRoute(Constants.SocialUrl);
+
+            return new SocialModel
+            {
+                FacebookLink = page.GetPropertyValue<string>("FacebookLink"),
+                TwitterLink = page.GetPropertyValue<string>("TwitterLink"),
+                InstagramLink = page.GetPropertyValue<string>("InstagramLink"),
+            };
         }
     }
 }

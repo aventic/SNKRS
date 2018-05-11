@@ -26,7 +26,7 @@ namespace SNKRS.Website
 
             ReactSiteConfiguration.Configuration
                 .SetLoadBabel(false)
-                .AddScriptWithoutTransform("/dist/server.bundle.js");
+                .AddScriptWithoutTransform("/dist/scripts/server.bundle.js");
         }
     }
 }

@@ -6,17 +6,17 @@ import { BrowserRouter } from 'react-router-dom';
 import App from '@src/components/App';
 import configureStore from '@src/store/configure-store';
 
-interface RoutingProps {
+interface IRoutingProps {
     path: string;
     data: { [key: string]: any };
 }
 
-const Routing: React.SFC<RoutingProps> = (props: RoutingProps) => {
+const Routing: React.SFC<IRoutingProps> = (props: IRoutingProps) => {
     return (
         // <Provider store={configureStore(props.data)}>
-            <BrowserRouter>
-                <App data={props.data} />
-            </BrowserRouter>
+        <BrowserRouter>
+            <App data={props.data} />
+        </BrowserRouter>
         // </Provider>
     );
 };

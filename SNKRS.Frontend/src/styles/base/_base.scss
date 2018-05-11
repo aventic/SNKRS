@@ -5,6 +5,7 @@
 }
 
 html {
+    height: 100%;
     font-size: 100%;
 
     @include media-up($size_medium) {
@@ -17,11 +18,16 @@ html {
 }
 
 body {
+    height: 100%;
     font-family: $font-family;
     font-size: rem($font-size);
     line-height: $line-height;
     color: $color-black;
     background: $color-white_dark;
+
+    > div {
+        height: 100%;
+    }
 }
 
 a {
@@ -31,4 +37,12 @@ a {
     &:hover {
         text-decoration: none;
     }
+}
+
+button {
+    cursor: pointer;
+}
+
+svg {
+    display: block;
 }

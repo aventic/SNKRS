@@ -1,0 +1,38 @@
+.social__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    margin: -#{rem(10px)} 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.social__item {
+    margin: rem(10px);
+}
+
+.social__icon {
+    &:hover {
+        svg {
+            color: $color-black;
+            transform: scale(1.5);
+
+            path {
+                fill: currentColor;
+            }
+        }
+    }
+
+    svg {
+        color: $color-grey_dark;
+        transform: scale(1);
+        transition: transform 0.5s $transition-timing, color 0.5s $transition-timing;
+        width: rem(15px);
+        height: rem(15px);
+
+        path {
+            fill: currentColor;
+        }
+    }
+}

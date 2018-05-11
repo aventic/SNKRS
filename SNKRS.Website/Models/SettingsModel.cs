@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace SNKRS.Models
@@ -11,10 +11,19 @@ namespace SNKRS.Models
         [JsonProperty("name")]
         public string Name { get; set; }
 
+        [JsonProperty("email")]
+        public string Email { get; set; }
+
         [JsonProperty("logo")]
         public string Logo { get; set; }
 
         [JsonProperty("mainMenu")]
         public IEnumerable<MainMenuModel> MainMenu { get; set; }
+
+        [JsonProperty("footerMenu")]
+        public IEnumerable<FooterMenuModel> FooterMenu { get; set; }
+
+        [JsonProperty("social")]
+        public SocialModel Social { get; set; }
     }
 }

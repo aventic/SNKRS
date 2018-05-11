@@ -1,0 +1,16 @@
+.scroll-top {
+    padding: 0;
+    border: 0;
+    background: none;
+}
+
+.scroll-top__icon {
+    svg {
+        width: rem(15px);
+        height: rem(15px);
+
+        path {
+            fill: $color-white;
+        }
+    }
+}

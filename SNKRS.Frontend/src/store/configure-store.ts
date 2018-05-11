@@ -22,7 +22,7 @@ const configureStore = (initialState: any) => {
             settings: settingsReducer,
             page: pageReducer
         }),
-        initialState,
+        initialState
         // composeEnhancers(applyMiddleware(epicMiddleware))
     );
 

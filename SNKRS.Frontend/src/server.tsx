@@ -6,17 +6,17 @@ import { StaticRouter } from 'react-router';
 import App from '@src/components/App';
 import configureStore from '@src/store/configure-store';
 
-interface RoutingProps {
+interface IRoutingProps {
     path: string;
     data: { [key: string]: any };
 }
 
-const Routing: React.SFC<RoutingProps> = (props: RoutingProps) => {
+const Routing: React.SFC<IRoutingProps> = (props: IRoutingProps) => {
     return (
         // <Provider store={configureStore(props.data)}>
-            <StaticRouter location={props.path} context={{}}>
-                <App data={props.data} />
-            </StaticRouter>
+        <StaticRouter location={props.path} context={{}}>
+            <App data={props.data} />
+        </StaticRouter>
         // </Provider>
     );
 };

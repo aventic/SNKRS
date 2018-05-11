@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const CleanPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const LivereloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = (env, { mode }) => {
     const isProduction = mode === 'production';
@@ -14,7 +15,7 @@ module.exports = (env, { mode }) => {
         },
         output: {
             path: path.resolve(__dirname, '../SNKRS.Website/dist'),
-            filename: '[name].bundle.js'
+            filename: 'scripts/[name].bundle.js'
         },
         resolve: {
             plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json' })],
@@ -69,9 +70,12 @@ module.exports = (env, { mode }) => {
             ]
         },
         plugins: [
-            new ExtractTextPlugin('styles.css'),
-            new CleanPlugin('../SNKRS.Website/dist')
+            new ExtractTextPlugin('styles/styles.bundle.css'),
+            new LivereloadPlugin({
+                delay: 10
+            })
+            // new CleanPlugin('../SNKRS.Website/dist')
         ],
-        devtool: isProduction ? 'source-map' : 'inline-source-map',
-    }
-}
+        devtool: isProduction ? 'source-map' : 'inline-source-map'
+    };
+};

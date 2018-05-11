@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "ee2dd2aba426e5a0")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "4bf5679e5de866f9")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -182,6 +182,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Email
+		///</summary>
+		[ImplementPropertyType("email")]
+		public string Email
+		{
+			get { return this.GetPropertyValue<string>("email"); }
+		}
+
+		///<summary>
 		/// Logo
 		///</summary>
 		[ImplementPropertyType("logo")]
@@ -197,6 +206,94 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Title
 		{
 			get { return this.GetPropertyValue<string>("title"); }
+		}
+	}
+
+	/// <summary>Footer</summary>
+	[PublishedContentModel("footer")]
+	public partial class Footer : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "footer";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Footer(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Footer, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Links
+		///</summary>
+		[ImplementPropertyType("links")]
+		public IEnumerable<IPublishedContent> Links
+		{
+			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("links"); }
+		}
+	}
+
+	/// <summary>Social</summary>
+	[PublishedContentModel("social")]
+	public partial class Social : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "social";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Social(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Social, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Facebook link
+		///</summary>
+		[ImplementPropertyType("facebookLink")]
+		public string FacebookLink
+		{
+			get { return this.GetPropertyValue<string>("facebookLink"); }
+		}
+
+		///<summary>
+		/// Instagram link
+		///</summary>
+		[ImplementPropertyType("instagramLink")]
+		public string InstagramLink
+		{
+			get { return this.GetPropertyValue<string>("instagramLink"); }
+		}
+
+		///<summary>
+		/// Twitter link
+		///</summary>
+		[ImplementPropertyType("twitterLink")]
+		public string TwitterLink
+		{
+			get { return this.GetPropertyValue<string>("twitterLink"); }
 		}
 	}
 

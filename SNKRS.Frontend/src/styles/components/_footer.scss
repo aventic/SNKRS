@@ -1,0 +1,135 @@
+.footer {
+    text-align: center;
+    font-size: rem(12px);
+}
+
+.footer__newsletter {
+    background: $color-white;
+    padding: rem(25px);
+}
+
+.footer__usp {
+    margin-top: 1px;
+    background: $color-white;
+    padding: rem(25px);
+}
+
+.footer__menu {
+    padding: rem(25px);
+}
+
+.footer__social {
+    border-top: 1px solid $color-grey;
+    display: inline-block;
+    padding: rem(25px) rem(25px) 0;
+}
+
+// Footer menu
+.footer-menu__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: -#{rem(10px)} 0;
+}
+
+.footer-menu__item {
+    margin: rem(10px);
+}
+
+.footer-menu__link {
+    color: $color-black;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+// Usp
+.usp {
+}
+
+.usp__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    margin: -#{rem(10px)} 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include media-up($size_wide) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+.usp__item {
+    margin: rem(10px);
+    display: flex;
+    align-items: center;
+}
+
+.usp__icon {
+    flex-shrink: 0;
+    background: $color-green_light;
+    width: rem(40px);
+    height: rem(40px);
+    margin-right: rem(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        width: rem(15px);
+        height: rem(15px);
+    }
+}
+
+// Social
+.social {
+}
+
+.social__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    margin: -#{rem(10px)} 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.social__item {
+    margin: rem(10px);
+}
+
+.social__icon {
+    &:hover {
+        svg {
+            color: $color-black;
+            transform: scale(1.5);
+
+            path {
+                fill: currentColor;
+            }
+        }
+    }
+
+    svg {
+        color: $color-grey_dark;
+        transform: scale(1);
+        transition: transform 0.5s $transition-timing, color 0.5s $transition-timing;
+        width: rem(15px);
+        height: rem(15px);
+
+        path {
+            fill: currentColor;
+        }
+    }
+}
