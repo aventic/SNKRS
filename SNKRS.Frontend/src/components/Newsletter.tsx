@@ -28,16 +28,20 @@ class Newsletter extends React.Component<any, INewsletterState> {
     render() {
         return (
             <div className="newsletter">
+                <div className="rte">
+                    <header className="newsletter__header">Lets keep in touch</header>
+                    <p>Subscribe to receive the latest SNKRS news</p>
+                </div>
                 <form className="newsletter__form" noValidate onSubmit={this.handleSubmit}>
                     <input
                         type="text"
                         className="newsletter__input input"
-                        placeholder="Receive the latest SNKRS news, enter your e-mail"
+                        placeholder="Enter your e-mail"
                         value={this.state.email}
                         onChange={this.handleEmailChange}
                     />
                     <button type="submit" className="button button_primary">
-                        Send
+                        Subscribe
                     </button>
                 </form>
             </div>

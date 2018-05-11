@@ -1,4 +1,10 @@
 .newsletter {
+    max-width: rem(300px);
+    margin: 0 auto;
+}
+
+.newsletter__header {
+    font-size: rem(18px);
 }
 
 .newsletter__form {
@@ -7,5 +13,4 @@
 
 .newsletter__input {
     flex-grow: 1;
-    text-align: center;
 }
