@@ -1,5 +1,5 @@
-import * as React from 'react';
 import ScrollHelper from '@src/helpers/scroll';
+import * as React from 'react';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 

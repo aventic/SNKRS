@@ -2,8 +2,8 @@ import Page from '@src/components/Page';
 import { IPage } from '@src/interfaces/page';
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { ajax, AjaxResponse } from 'rxjs/ajax';
 import { Subscription } from 'rxjs';
+import { AjaxResponse, ajax } from 'rxjs/ajax';
 
 interface IPageResolverProps {
     page: IPage;

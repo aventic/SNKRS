@@ -72,7 +72,7 @@ module.exports = (env, { mode }) => {
         plugins: [
             new ExtractTextPlugin('styles/styles.bundle.css'),
             new LivereloadPlugin({
-                delay: 10
+                delay: 1000
             })
             // new CleanPlugin('../SNKRS.Website/dist')
         ],

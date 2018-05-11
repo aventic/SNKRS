@@ -12,14 +12,15 @@
 @import './base/grid';
 @import './base/button';
 @import './base/link';
+@import './base/site';
+@import './base/input';
 
 // Components
-@import './components/site';
 @import './components/header';
 @import './components/main-menu';
 @import './components/footer';
-@import './components/page';
 @import './components/top-bar';
 @import './components/scroll-top';
 @import './components/usp';
 @import './components/social';
+@import './components/newsletter';

@@ -1,11 +1,10 @@
-import * as React from 'react';
-import { Link } from 'react-router-dom';
-import SvgIcon from '@src/components/SvgIcon';
-import { IFooterMenu } from '@src/interfaces/footer-menu';
-import { ISocial } from '@src/interfaces/social';
+import FooterMenu from '@src/components/FooterMenu';
+import Newsletter from '@src/components/Newsletter';
 import Social from '@src/components/Social';
 import Usp from '@src/components/Usp';
-import FooterMenu from '@src/components/FooterMenu';
+import { IFooterMenu } from '@src/interfaces/footer-menu';
+import { ISocial } from '@src/interfaces/social';
+import * as React from 'react';
 
 interface IFooterProps {
     footerMenu: IFooterMenu[];
@@ -17,7 +16,9 @@ const Footer: React.SFC<IFooterProps> = ({ social, footerMenu }: IFooterProps) =
         <div className="footer__newsletter">
             <div className="container">
                 <div className="row">
-                    <div className="column">Newsltter</div>
+                    <div className="column">
+                        <Newsletter />
+                    </div>
                 </div>
             </div>
         </div>

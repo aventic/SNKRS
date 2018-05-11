@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { IMainMenu } from '@src/interfaces/main-menu';
+import * as React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 interface IMainMenuProps {

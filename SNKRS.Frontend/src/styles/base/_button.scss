@@ -1,0 +1,10 @@
+.button {
+    border: 0;
+    background: none;
+    padding: rem(15px);
+    text-transform: uppercase;
+}
+
+.button_primary {
+    background: $color-green_light;
+}

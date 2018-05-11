@@ -1,5 +1,5 @@
-import * as React from 'react';
 import SvgIcon from '@src/components/SvgIcon';
+import * as React from 'react';
 
 class ScrollTop extends React.Component<any, any> {
     private handleClick = (): void => {
