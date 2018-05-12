@@ -5,7 +5,8 @@ node_modules/
 [Bb]in/
 [Oo]bj/
 [Cc]onnectionStrings.config
-SNKRS.Website/dist/
+SNKRS.Website/dist/scripts/
+SNKRS.Website/dist/styles/
 
 # Umbraco
 **/App_Data/Logs/
