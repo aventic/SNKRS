@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace SNKRS.Models
+namespace SNKRS.Website.Models
 {
     public class SocialModel
     {

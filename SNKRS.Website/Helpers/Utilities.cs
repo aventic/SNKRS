@@ -1,8 +1,8 @@
-﻿using System.Text.RegularExpressions;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml.Linq;
 
-namespace SNKRS.Helpers
+namespace SNKRS.Website.Helpers
 {
     public class Utilities
     {

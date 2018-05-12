@@ -1,14 +1,14 @@
-﻿using System;
+using System;
 using System.Net.Http;
 using System.Web.Mvc;
 using Umbraco.Web.WebApi;
-using SNKRS.Models;
-using SNKRS.Helpers;
+using SNKRS.Website.Models;
+using SNKRS.Website.Helpers;
 using System.Net;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 
-namespace SNKRS.Controllers
+namespace SNKRS.Website.Controllers
 {
     public class ContentController : UmbracoApiController
     {

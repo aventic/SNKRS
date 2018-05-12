@@ -7,10 +7,10 @@ using System.Web.Mvc;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 using Umbraco.Web.WebApi;
-using SNKRS.Helpers;
-using SNKRS.Models;
+using SNKRS.Website.Helpers;
+using SNKRS.Website.Models;
 
-namespace SNKRS.Controllers
+namespace SNKRS.Website.Controllers
 {
     public class SettingsController : UmbracoApiController
     {

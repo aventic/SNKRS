@@ -1,9 +1,9 @@
 using Newtonsoft.Json;
 using System.Web.Mvc;
 using Umbraco.Web.Mvc;
-using SNKRS.Models;
+using SNKRS.Website.Models;
 
-namespace SNKRS.Controllers
+namespace SNKRS.Website.Controllers
 {
     public class HomeController : SurfaceController
     {

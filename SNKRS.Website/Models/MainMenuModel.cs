@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace SNKRS.Models
+namespace SNKRS.Website.Models
 {
     public class MainMenuModel
     {
