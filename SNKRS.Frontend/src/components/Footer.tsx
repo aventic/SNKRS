@@ -1,53 +1,29 @@
-import FooterMenu from '@src/components/FooterMenu';
 import Newsletter from '@src/components/Newsletter';
 import Social from '@src/components/Social';
 import Usp from '@src/components/Usp';
-import { IFooterMenu } from '@src/interfaces/footer-menu';
 import { ISocial } from '@src/interfaces/social';
 import * as React from 'react';
+import { IMenu } from '@src/interfaces/menu';
+import Menu from '@src/components/Menu';
 
 interface IFooterProps {
-    footerMenu: IFooterMenu[];
+    footerMenu: IMenu[];
     social: ISocial;
 }
 
 const Footer: React.SFC<IFooterProps> = ({ social, footerMenu }: IFooterProps) => (
     <div className="footer">
         <div className="footer__newsletter">
-            <div className="container">
-                <div className="row">
-                    <div className="column">
-                        <Newsletter />
-                    </div>
-                </div>
-            </div>
+            <Newsletter />
         </div>
         <div className="footer__usp">
-            <div className="container">
-                <div className="row">
-                    <div className="column">
-                        <Usp />
-                    </div>
-                </div>
-            </div>
+            <Usp />
         </div>
         <div className="footer__menu">
-            <div className="container">
-                <div className="row">
-                    <div className="column">
-                        <FooterMenu footerMenu={footerMenu} />
-                    </div>
-                </div>
-            </div>
+            <Menu menu={footerMenu} />
         </div>
         <div className="footer__social">
-            <div className="container">
-                <div className="row">
-                    <div className="column">
-                        <Social social={social} />
-                    </div>
-                </div>
-            </div>
+            <Social social={social} />
         </div>
     </div>
 );

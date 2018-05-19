@@ -4,7 +4,7 @@
     min-height: 100%;
     margin-left: rem(70px);
     padding: rem(50px + (1.4 * $font-size + 20px)) 0 rem(50px);
-    height: 4000px;
+    height: 1000px;
 
     @include media-up($size_small) {
         margin-left: rem(90px);

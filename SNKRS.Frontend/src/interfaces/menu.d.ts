@@ -1,4 +1,4 @@
-export interface IFooterMenu {
+export interface IMenu {
     name: string;
     url: string;
 }
